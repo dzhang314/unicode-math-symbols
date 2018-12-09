@@ -54,6 +54,7 @@ def full_snippet_generator(command, capitals, smalls, greeks, digits):
 
 if __name__ == "__main__":
     with open("snippets.json", "w+") as f:
+        f.write("{\n")
         for commands, (capitals, smalls,
                        greeks, digits) in LATEX_STYLE_COMMANDS.items():
             for command in commands:
@@ -62,3 +63,4 @@ if __name__ == "__main__":
                     f.write(snippet)
         for snippet in naked_greek_snippet_generator():
             f.write(snippet)
+        f.write("}\n")
